@@ -23,10 +23,10 @@ def callback(a,b):
     
 pad = lp.get_me_a_pad()
 pad.in_ports.set_callback(callback)
-input("Press Enter to continue...")
-#for loop in range(20000000):
-#    time.sleep(1)
-pad.in_ports.cancel_callback()
+#input("Press Eter to continue...")
+#pad.in_ports.cancel_callback()
+while True:
+    time.sleep(100000)
 
 
 if __name__ == "__main__":
