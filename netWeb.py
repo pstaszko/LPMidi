@@ -16,10 +16,16 @@ def hello_world():
         cmd=f.get('cmd', default = 'missing cmd', type = str)
         x=f.get('x', default = 0, type = int)
         y=f.get('y', default = 0, type = int)
+        red=f.get('red', default = 0, type = int)
+        green=f.get('green', default = 0, type = int)
+        blue=f.get('blue', default = 0, type = int)
         if cmd=='clear':
             pad.reset()
-        elif cmd=='set_led_xy_by_colour':
-            pad.set_led_xy_by_colour(x, y, pad.colours['white'])
+        elif cmd=='set_led_xy_by_colour': pad.set_led_xy_by_colour(x, y, pad.colours['white'])
+        elif cmd=='set_led_xy': pad.set_led_xy(x, y, red, green, blue)
+        elif cmd=='set_all_on': pad.set_all_on(red, green, blue)
+        
+        
         return cmd
     except Exception as e:
         s = str(e)
