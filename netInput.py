@@ -4,7 +4,7 @@ import pylaunchpad as lp
 import time
 
 host = socket.gethostname()
-host = '127.0.0.1'
+host = '192.168.1.7'
 port = 12345
 def sendInfo(msg):
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
