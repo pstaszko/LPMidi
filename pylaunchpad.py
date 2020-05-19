@@ -23,7 +23,7 @@ class LPMidi(object):
         if platform.system() =="Darwin":
             self.launchpads = ['Launchpad Mini MK3 LPMiniMK3 MIDI', 'MK2', 'Launchpad MK3', 'Launchpad Pro']
         else:
-            self.launchpads = ['LPMiniMK3', 'MK2',  'Launchpad MK3', 'Launchpad Pro']
+            self.launchpads = ['(LPMiniMK3', 'MK2',  'Launchpad MK3', 'Launchpad Pro']
         self.midi_out_port = None
         self.out_port_num = None
         self.midi_in_port = None
