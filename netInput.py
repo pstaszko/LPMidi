@@ -8,8 +8,8 @@ host = '192.168.1.7'
 port = 12345
 def sendInfo(msg):
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    #print("trying " + host)
-    #print("trying " + str(port))
+    print("sending to " + host + ":" + str(port))
+    print("msg: " + msg)
     s.connect((host, port))
     s.sendall(str.encode(msg))
     s.close()

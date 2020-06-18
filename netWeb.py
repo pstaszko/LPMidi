@@ -1,11 +1,33 @@
 from flask import Flask, request
+import socket
+import pylaunchpad as lp
+import time
+
 import pylaunchpad as lp
 import bitmaps as bmp
 import time
 import sys
 from random import choice
 
+host = socket.gethostname()
+host = '192.168.1.7'
+port = 12345
+def sendInfo(msg):
+    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    print("sending to " + host + ":" + str(port))
+    print("msg: " + msg)
+    s.connect((host, port))
+    s.sendall(str.encode(msg))
+    s.close()
+
+def callback(a,b):
+    x=a[0]
+    m=str(x[0]) + "," + str(x[1]) + "," + str(x[2])
+    print(m)
+    sendInfo(m)
+
 pad = lp.get_me_a_pad()
+pad.in_ports.set_callback(callback)
 pad.reset()
     
 app = Flask(__name__)
@@ -26,7 +48,7 @@ def hello_world():
         elif cmd=='set_all_on': pad.set_all_on(red, green, blue)
         elif cmd=='paint_app': pad.paint_app()
         elif cmd=='set_all_on_slow': pad.paint_app(red, green, blue)
-        
+        print(cmd)
         
         return cmd
     except Exception as e:
